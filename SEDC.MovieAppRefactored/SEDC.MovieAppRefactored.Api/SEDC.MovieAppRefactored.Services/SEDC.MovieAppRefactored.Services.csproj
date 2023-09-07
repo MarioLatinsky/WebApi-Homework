@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SEDC.MovieAppRefactored.CustomExceptions\SEDC.MovieAppRefactored.CustomExceptions.csproj" />
+    <ProjectReference Include="..\SEDC.MovieAppRefactored.DataAccess\SEDC.MovieAppRefactored.DataAccess.csproj" />
+    <ProjectReference Include="..\SEDC.MovieAppRefactored.DTOs\SEDC.MovieAppRefactored.DTOs.csproj" />
+    <ProjectReference Include="..\SEDC.MovieAppRefactored.Mappers\SEDC.MovieAppRefactored.Mappers.csproj" />
+  </ItemGroup>
+
+</Project>
