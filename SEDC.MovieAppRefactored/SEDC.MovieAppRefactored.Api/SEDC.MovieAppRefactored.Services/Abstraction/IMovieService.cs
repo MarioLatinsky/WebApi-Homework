@@ -1,6 +1,7 @@
 ﻿using SEDC.MovieAppRefactored.DataAccess;
 using SEDC.MovieAppRefactored.Domain.Models;
-using SEDC.MovieAppRefactored.DTOs;
+using SEDC.MovieAppRefactored.DTOs.MovieDTOs;
+using SEDC.MovieAppRefactored.DTOs.UserDTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,9 @@ namespace SEDC.MovieAppRefactored.Services.Abstraction
     {
         List<MovieDTO> GetAll();
         MovieDTO GetById(int id);
-
         List<GetByGenreOrYearDTO> GetByGenreOrYear(int? year, int? genre);
-
-        //List<Movie> GetByGenre(int? genre);
-        //List<Movie> GetByYear(int? year);
+        LoginUserDTO LoginUser(string username, string password);
+        void RegisterUser(RegisterUserDTO entity);
         void CreateMovie(CreateMovieDTO movie);
         void UpdateMovie(UpdateMovieDTO movie);
         void DeleteMovie(int id);

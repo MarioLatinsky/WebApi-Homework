@@ -1,6 +1,5 @@
 ﻿using SEDC.MovieAppRefactored.DataAccess;
 using SEDC.MovieAppRefactored.Domain.Models;
-using SEDC.MovieAppRefactored.DTOs;
 using SEDC.MovieAppRefactored.Services.Abstraction;
 using SEDC.MovieAppRefactored.Mappers;
 using System;
@@ -9,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SEDC.MovieAppRefactored.CustomExceptions;
+using SEDC.MovieAppRefactored.DTOs.MovieDTOs;
+using SEDC.MovieAppRefactored.DTOs.UserDTOs;
 
 namespace SEDC.MovieAppRefactored.Services.Implementation
 {
@@ -60,6 +61,15 @@ namespace SEDC.MovieAppRefactored.Services.Implementation
             return movieFromDb.MapToDto();
         }
 
+        public LoginUserDTO LoginUser(string username, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RegisterUser(RegisterUserDTO entity)
+        {
+            throw new NotImplementedException();
+        }
 
         public void UpdateMovie(UpdateMovieDTO movie)
         {
@@ -75,15 +85,6 @@ namespace SEDC.MovieAppRefactored.Services.Implementation
             movieFromDb.Description = movie.Description;
         }
 
-        //public List<Movie> GetByGenre(int? genre)
-        //{
-        //    return _movieRepository.GetByGenre(genre);
-        //}
-
-        //public List<Movie> GetByYear(int? year)
-        //{
-        //    return _movieRepository.GetByYear(year);
-        //}
 
     }
 }

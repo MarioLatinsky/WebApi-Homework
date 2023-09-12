@@ -6,13 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SEDC.MovieAppRefactored.DTOs
+namespace SEDC.MovieAppRefactored.DTOs.MovieDTOs
 {
-    public class CreateMovieDTO
+    public class UpdateMovieDTO
     {
+        public int Id { get; set; }
         public string Title { get; set; }
 
-        [MaxLength(250, ErrorMessage = "Description cannot exceed 250 characters")]
+        [StringLength(250, ErrorMessage = "Description cannot exceed 250 characters.")]
         public string? Description { get; set; }
         public int Year { get; set; }
         public Genre Genre { get; set; }

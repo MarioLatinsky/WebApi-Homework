@@ -78,6 +78,8 @@ namespace SEDC.MovieAppRefactored.Api.Controllers
             };
         }
 
+
+
         [HttpGet("getbygenreoryear")]
         public IActionResult GetByGenreOrYear([FromQuery] int? genre,
                                               [FromQuery] int? year)
@@ -90,26 +92,22 @@ namespace SEDC.MovieAppRefactored.Api.Controllers
                 }
 
 
-                if (year <= 0)
+                if (year is not null && year <= 0)
                 {
                     return BadRequest("Invalid year input.");
 
                 }
 
-                if(year != year)
-                {
-                    return BadRequest("Movie with this year doesnt exist");
-                }
-
-
-                if(genre <= 0)
+                if (genre is not null && genre <= 0)
                 {
                     return BadRequest("Invalid genre input.");
                 }
 
-                if(genre != genre)
+                var listOfMovies = _movieService.GetByGenreOrYear(genre, year); 
+
+                if(listOfMovies.Count == 0)
                 {
-                    return BadRequest("Movie of this genre doesnt exist");
+                    return BadRequest("Movie not found.");
                 }
 
                 return Ok(_movieService.GetByGenreOrYear(genre, year));
@@ -122,37 +120,6 @@ namespace SEDC.MovieAppRefactored.Api.Controllers
             }
 
         }
-
-        //try
-        //{
-        //    if (genre <= 0 && year <= 0)
-        //    {
-        //        return BadRequest("At least one valid input is required.");
-        //    }
-
-        //    List<Movie> movies = new List<Movie>();
-
-        //    if (year.HasValue)
-        //    {
-        //        movies.AddRange(_movieService.GetByYear(year));
-        //    }
-
-        //    if (genre.HasValue)
-        //    {
-        //        movies.AddRange(_movieService.GetByGenre(genre));
-        //    }
-
-        //    if (movies.Count == 0)
-        //    {
-        //        return NotFound("No movies found based on the provided criteria.");
-        //    }
-
-        //    return Ok(movies);
-        //}
-        //catch (Exception)
-        //{
-        //    return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred. Please contact the administrator.");
-        //}
 
 
     }

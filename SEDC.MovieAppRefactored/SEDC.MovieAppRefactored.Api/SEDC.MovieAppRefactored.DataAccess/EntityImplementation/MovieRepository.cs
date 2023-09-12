@@ -33,48 +33,30 @@ namespace SEDC.MovieAppRefactored.DataAccess.EntityImplementation
         {
             return _dbContext.Movies.ToList();
         }
+         
 
         public List<Movie> GetByGenreOrYear(int? genre, int? year)
         {
-         
             var movie = new List<Movie>();
             if(genre is not null)
             {
-               
-                return _dbContext.Movies.Where(movie => (int)movie.Genre == genre).ToList(); 
-                
+                return _dbContext.Movies.Where(movie => (int)movie.Genre == genre).ToList();                 
             }
 
             if(year is not null)
             {
-
                 return _dbContext.Movies.Where(movie => movie.Year == year).ToList();
             }
 
-
             return movie;
         }
-
-
-
-        //public List<Movie> GetByGenre(int? genre)
-        //{
-        //    return _dbContext.Movies
-        //        .Where(movie => genre.HasValue && (int)movie.Genre == genre)
-        //        .ToList();
-        //}
-        //public List<Movie> GetByYear(int? year)
-        //{
-        //    return _dbContext.Movies
-        //        .Where(movie => year.HasValue && movie.Year == year)
-        //        .ToList();
-        //}
-
 
         public Movie GetById(int id)
         {
             return _dbContext.Movies.SingleOrDefault(movie => movie.Id == id);
         }
+
+  
 
         public void UpdateMovie(Movie entity)
         {

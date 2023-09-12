@@ -1,5 +1,6 @@
 ﻿using SEDC.MovieAppRefactored.Domain.Models;
-using SEDC.MovieAppRefactored.DTOs;
+using SEDC.MovieAppRefactored.DTOs.MovieDTOs;
+using SEDC.MovieAppRefactored.DTOs.UserDTOs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,6 +50,26 @@ namespace SEDC.MovieAppRefactored.Mappers
             return new DeleteMovieDTO()
             {
                 Id = movie.Id,
+            };
+        }
+
+        public static LoginUserDTO MapToLoginUserDto(this User user)
+        {
+            return new LoginUserDTO()
+            {
+                Username = user.Username,
+                Password = user.Password,
+            };
+        }
+
+        public static RegisterUserDTO MapToRegisterUserDto(this User user)
+        {
+            return new RegisterUserDTO()
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Username = user.Username,
+                Password = user.Password,
             };
         }
 

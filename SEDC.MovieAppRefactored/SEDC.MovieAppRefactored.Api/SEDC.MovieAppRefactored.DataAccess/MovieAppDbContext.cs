@@ -67,6 +67,32 @@ namespace SEDC.MovieAppRefactored.DataAccess
                     Year = 2025
                 });
 
+            modelBuilder.Entity<User>()
+                .HasData(new User
+                {
+                    Id = 1,
+                    FirstName = "Mario",
+                    LastName = "Latinski",
+                    FavoriteGenre = Genre.Action,
+                    Password = "",
+                    Username = "m.latinski",
+                    MoviesList = new List<Movie>()
+                });
+
+            modelBuilder.Entity<User>()
+           .HasData(new User
+           {
+               Id = 2,
+               FirstName = "John",
+               LastName = "Johnson",
+               FavoriteGenre = Genre.Comedy,
+               Password = "",
+               Username = "j.johnson",
+               MoviesList = new List<Movie>()
+           });
+
+
+
         }
     }
 }

@@ -14,8 +14,7 @@ namespace SEDC.MovieAppRefactored.DataAccess
         List<T> GetAll();
         T GetById(int id);
         List<T> GetByGenreOrYear(int? year, int? genre);
-        //List<Movie> GetByGenre(int? genre);
-        //List<Movie> GetByYear(int? year);
+        
         void CreateMovie(T entity);
         void UpdateMovie(T entity);
         void DeleteMovie(T entity);

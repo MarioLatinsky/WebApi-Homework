@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SEDC.MovieAppRefactored.DTOs
+namespace SEDC.MovieAppRefactored.DTOs.MovieDTOs
 {
     public class MovieDTO
     {
